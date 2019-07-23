@@ -15,7 +15,7 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="dashboard.php">Home</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="php/logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>

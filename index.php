@@ -88,12 +88,3 @@
 <!-- ./main -->
 
 <?php include "templates/footer.php" ?>
-function is_auth() {
-    return isset($_SESSION['user_id']);
-}
-
-function check_auth() {
-    if(!is_auth()) {
-        redirect_to("/index.php?logged_in=false");
-    }
-}
