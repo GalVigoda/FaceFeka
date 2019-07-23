@@ -2,9 +2,9 @@
 <?php include "templates/header.php" ?>
 
 <?php
-  //  session_start();
-    function db_connect() {
-    }
+ //   session_start();
+    db_connect();
+    
 ?>
 
 <?php
