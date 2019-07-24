@@ -42,7 +42,7 @@
   <?php endif; ?>
   <!-- ./messages -->
 
-  <h1 class="text-center">Welcome to FaceClone! <br><small>A simple Facebook clone.</small></h1>
+  <h1 class="text-center">Welcome to FaceFeka! <br></h1>
 
   <div class="row">
     <div class="col-md-6">

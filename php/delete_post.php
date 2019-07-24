@@ -1,12 +1,20 @@
 <?php
     require_once "functions.php";
-    connect_to_db();
+    db_connect();
     $sql = "DELETE FROM posts WHERE id = ?";
-    $statement = $db_connection->prepare($sql);
+    $statement = $conn->prepare($sql);
     $statement->bind_param('i', $_GET['id']);
     if ($statement->execute()) {
-        redirect_to('/dashboard.php');
+        $sql = "DELETE FROM post_comments WHERE post_id = ?";
+        $statement = $conn->prepare($sql);
+        $statement->bind_param('i', $_GET['id']);
+        if ($statement->execute()){
+            redirect_to('/dashboard.php');
+        }
+        else {
+            echo "Error!!! " . $conn->error;
+        } 
     } else {
-        echo "Error!!! " . $db_connection->error;
+        echo "Error!!! " . $conn->error;
     }
-    $db_connection->close();
+    $conn->close();
