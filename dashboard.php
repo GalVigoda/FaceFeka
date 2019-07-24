@@ -13,8 +13,12 @@ db_connect();
     #image_preview{
       padding: 10px;
     }
+    #post_image_preview img{
+      width: 100px;
+      padding: 5px;
+    }
     #image_preview img{
-      width: 200px;
+      width: 100px;
       padding: 5px;
     }
   </style>
@@ -127,6 +131,19 @@ db_connect();
                             <div class="panel-body">
                                 <p><?php echo $post['text']; ?></p>
                             </div>
+                            <?php
+                            $query = $conn->query("SELECT * FROM images WHERE post_id={$post['post_id']}");
+                            if($query->num_rows > 0){
+                                ?> 
+                                <div id="post_image_preview"> 
+                                    <?php
+                                        while($row = $query->fetch_assoc()){
+                                            $imageURL = 'uploads/'.$row["file_name"];
+                                    ?>
+                                        <img src="<?php echo $imageURL; ?>" alt="" />
+                                    <?php } ?>
+                                </div>
+                            <?php } ?> 
                             <div class="panel-footer">
                                 <span>posted <?php echo $post['date']; ?> by <?php echo $post['username']; ?></span>
                                 <span class="text-muted">
