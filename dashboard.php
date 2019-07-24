@@ -4,6 +4,20 @@
 check_auth();
 db_connect();
 ?>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
+  <style type="text/css">
+    input[type=file]{
+      display: inline;
+    }
+    #image_preview{
+      padding: 10px;
+    }
+    #image_preview img{
+      width: 200px;
+      padding: 5px;
+    }
+  </style>
 
 <!-- main -->
 <main class="container">
@@ -64,9 +78,14 @@ db_connect();
         <div class="col-md-6">
             <!-- post form -->
 
-            <form method="post" action="php/create_post.php">
+            <form method="post" action="php/create_post.php" id="add_post" enctype="multipart/form-data">
                 <div >
                     <input class="form-control" type="text" name="content" placeholder="Make a post…">
+                </div>
+                <div>
+                    <input type="file" id="uploadFile" name="uploadFile[]" multiple/>
+                    
+                    <div id="image_preview"></div>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="privateChec" name="privatePost" value="true">
@@ -77,8 +96,23 @@ db_connect();
                 </div>
             </form>
             <hr>
+            
+            <script type="text/javascript">
+                $("#uploadFile").change(function(){
+                    $('#image_preview').html("");
+                    var total_file=document.getElementById("uploadFile").files.length;
+                    for(var i=0;i<total_file;i++)
+                    {
+                        $('#image_preview').append("<img src='"+URL.createObjectURL(event.target.files[i])+"'>");
+                    }
+                });
+                
+                $('add_post').ajaxForm(function() 
+                {
+                    
+                }); 
+            </script>
             <!-- ./post form -->
-
             <!-- feed -->
             <div>
                 <!-- post -->
