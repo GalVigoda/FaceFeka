@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MultiPlayer Game</title>
+
+    <script type='text/javascript' src='/socket.io/socket.io.js'></script>
+    <script data-main="game/game" src="lib/require.min.js"></script>
+
+    <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body style="background: rgba(255, 166, 32, 0.918)">
+
+<div style="text-align: center;">
+
+    <br>
+    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(5.05)">ACCELERATE</button>
+    <button onclick="startGame()">START GAME</button>
+</div>
+
+</body>
+</html>
+

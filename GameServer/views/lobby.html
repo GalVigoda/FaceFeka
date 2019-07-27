@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background:  rgba(153, 95, 9, 0.918)">
+
+   
+<div style="text-align: center;">
+    <h1>A Multiplayer Game! Flappy Bird! :)</h1>
+   
+  
+    <form method="post" action="./game">
+
+     <span style="color: white"> Player Name:</span>
+      <input type="text" name="firstName" placeholder="Enter name" required>
+        <P>
+            <span style="color: white"> Room number:</span>
+        <input type="text" name="roomNumber" placeholder="Enter room number" required>
+        </P>
+        <br>
+        <p>
+          <span style="color: white"> Select a Player:</span>
+          <select name="to_user">
+            <?php
+            
+            ?>
+           
+          </select>
+          <input type="text" name="roomNumber" placeholder="Enter room number" required>
+        </p>
+      <h1> Player Color:
+        <P id= color1>
+          <span style="color: red">
+            <input type="radio" name="color" value="red">Red
+          </span>
+          <span style="color: blue">
+            <input type="radio" name="color" value="blue">Blue
+          </span>
+            <span style="color: yellow">
+            <input type="radio" name="color" value="yellow" checked>Yellow
+          </span>
+          <span style="color: orange">
+            <input type="radio" name="color" value="orange">Orange
+          </span>
+        </P>
+      
+          <span style="color: green">
+          <input type="radio" name="color" value="green">Green
+        </span>
+        <span style="color: pink">
+          <input type="radio" name="color" value="pink">Pink
+        </span>
+        <span style="color: black">
+          <input type="radio" name="color" value="black">Black
+        </span>
+        <span style="color: gray">
+          <input type="radio" name="color" value="gray">Gray
+        </span>
+        
+      </h1>
+        <br><br>
+        <input type="submit" value="Start Game" 
+        style="height:170px;width:450px;background:rgba(243, 149, 8, 0.918)">
+    </form>
+    </div>
+
+</body>
+</html>

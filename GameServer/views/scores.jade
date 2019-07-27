@@ -1,0 +1,32 @@
+head
+    style
+        table {border: 1px solid black;}
+
+
+
+    style.
+        body {
+            font-family: ariel;
+            font-size: 16px;
+            background: orange;
+        }
+    h1
+    text-align: center
+        | Game scores:
+
+    center.div
+        table
+            tr
+                th Score
+                th Name
+                th Color
+
+            each record in scores
+                tr
+                    td #{record.score}
+                    td #{record.name}
+                    td #{record.color}
+
+    a(href="/")
+        center.button(type="button") Start New Game
+

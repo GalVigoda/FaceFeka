@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 24, 2019 at 04:08 PM
+-- Generation Time: Jul 27, 2019 at 05:39 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -39,6 +39,21 @@ CREATE TABLE IF NOT EXISTS `friend_requests` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `game_requests`
+--
+
+DROP TABLE IF EXISTS `game_requests`;
+CREATE TABLE IF NOT EXISTS `game_requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `from_user` int(11) NOT NULL,
+  `to_user` int(11) NOT NULL,
+  `url` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=hebrew;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `images`
 --
 
@@ -49,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `images` (
   `post_id` int(11) NOT NULL,
   `upload_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=hebrew;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=hebrew;
 
 --
 -- Dumping data for table `images`
@@ -60,7 +75,11 @@ INSERT INTO `images` (`id`, `file_name`, `post_id`, `upload_time`) VALUES
 (2, 'IMG_20190724_160641_935.PNG', 68, '2019-07-24 16:06:41'),
 (3, 'IMG_20190724_160641_735.PNG', 68, '2019-07-24 16:06:41'),
 (4, 'IMG_20190724_160641_744.PNG', 68, '2019-07-24 16:06:41'),
-(5, 'IMG_20190724_160641_473.PNG', 68, '2019-07-24 16:06:41');
+(5, 'IMG_20190724_160641_473.PNG', 68, '2019-07-24 16:06:41'),
+(6, 'IMG_20190724_162231_791.PNG', 69, '2019-07-24 16:22:31'),
+(7, 'IMG_20190724_163212_669.PNG', 70, '2019-07-24 16:32:12'),
+(8, 'IMG_20190726_052133_115.PNG', 77, '2019-07-26 05:21:33'),
+(9, 'IMG_20190726_052133_562.PNG', 77, '2019-07-26 05:21:33');
 
 -- --------------------------------------------------------
 
@@ -76,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isPrivate` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=hebrew;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=hebrew;
 
 --
 -- Dumping data for table `posts`
@@ -148,7 +167,19 @@ INSERT INTO `posts` (`id`, `text`, `user_id`, `date`, `isPrivate`) VALUES
 (65, 'bb', 1, '2019-07-24 18:46:09', 0),
 (66, 'lolololo', 1, '2019-07-24 19:05:19', 0),
 (67, ' Hey :)', 1, '2019-07-24 19:06:02', 0),
-(68, 'lolololo', 1, '2019-07-24 19:06:41', 1);
+(68, 'lolololo', 1, '2019-07-24 19:06:41', 1),
+(69, 'lolololo', 1, '2019-07-24 19:22:31', 1),
+(70, ' Hey :)', 2, '2019-07-24 19:32:12', 0),
+(71, 'lolololo', 1, '2019-07-26 08:11:05', 0),
+(72, ' Hey :)', 1, '2019-07-26 08:12:22', 0),
+(73, 'bb', 1, '2019-07-26 08:12:53', 0),
+(74, ' Hey :)', 1, '2019-07-26 08:13:32', 0),
+(75, 'bb', 1, '2019-07-26 08:17:00', 0),
+(76, ' Hey :)', 1, '2019-07-26 08:21:26', 0),
+(77, 'lolololo', 1, '2019-07-26 08:21:33', 0),
+(78, 'bb', 1, '2019-07-26 08:25:38', 1),
+(79, 'this is LOLOLO post', 3, '2019-07-26 08:33:03', 1),
+(80, 'this is naor post not private', 1, '2019-07-26 08:35:48', 0);
 
 -- --------------------------------------------------------
 
@@ -163,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `post_comments` (
   `user_id` int(11) NOT NULL,
   `comment` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=hebrew;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=hebrew;
 
 --
 -- Dumping data for table `post_comments`
@@ -172,7 +203,8 @@ CREATE TABLE IF NOT EXISTS `post_comments` (
 INSERT INTO `post_comments` (`id`, `post_id`, `user_id`, `comment`) VALUES
 (3, 11, 1, 'gggg'),
 (2, 11, 1, 'comment2'),
-(4, 11, 1, 'gggg');
+(4, 11, 1, 'gggg'),
+(8, 79, 3, 'this is lololo comment');
 
 -- --------------------------------------------------------
 
@@ -186,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(30) NOT NULL,
   `password` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=hebrew;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=hebrew;
 
 --
 -- Dumping data for table `users`
@@ -194,7 +226,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1, 'naor', '$2y$10$dbdLc5LGGHh1lRMvbuK9J.7qTjGwwk3eT03tmLQyydF6Eyjnh3Yoi'),
-(2, 'LOLO', '$2y$10$QNEKp7Ng8a7AZ0eYkqTDsed8XR3eQaJCHHamgzx33tbtojRsbPgku');
+(2, 'LOLO', '$2y$10$QNEKp7Ng8a7AZ0eYkqTDsed8XR3eQaJCHHamgzx33tbtojRsbPgku'),
+(3, 'LOLOLO', '$2y$10$Oaxjp5u6eSW3LlfAIorSpOSiYirYodGv8qzCrRv1gROO9HK8g527y');
 
 -- --------------------------------------------------------
 
@@ -208,15 +241,15 @@ CREATE TABLE IF NOT EXISTS `user_friends` (
   `user_id` int(11) NOT NULL,
   `friend_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=hebrew;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=hebrew;
 
 --
 -- Dumping data for table `user_friends`
 --
 
 INSERT INTO `user_friends` (`id`, `user_id`, `friend_id`) VALUES
-(7, 1, 2),
-(8, 2, 1);
+(9, 2, 1),
+(10, 1, 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

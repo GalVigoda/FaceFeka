@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    script(type='text/javascript', src='/socket.io/socket.io.js')
+    script(data-main="/game/game" src="lib/require.min.js")
+
+    <style >      <canvas  border:10px solid #d3d3d3 background: #f1f1f1 ></canvas> </style>
+
+  style.
+    body {
+      font-family: ariel;
+      font-size: 18px;
+      background: orange;
+    }
+
+  center
+    <button id="createConnectionBtn" style="display:none" onclick="createConnection('#{roomNumber}')">createConnection</button>
+
+
+
+    p Hi #{name}! Your color is #{color}.
+
+
+    p you can move with the A-Left/Slow , D-Right ,W-Up ,S-Down
+
+    <p id=instructions> The game will start automatically when all connected players are ready.</p>
+
+
+    p Room number: #{roomNumber}
+    p Players ready to play: <span id=numReadyPlayers>#{numReadyPlayers}</span>
+
+    p Players in this room: <span id=numConnectedPlayers>#{numConnectedPlayers}</span>
+
+
+    <button id="readyBtn" style="display:block" onclick="ready('#{color}','#{name}')">READY</button>
