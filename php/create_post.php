@@ -13,7 +13,7 @@ defined("SITE_ROOT") ? null : define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
        $isPrivate = 1; 
     $statement = $conn->prepare ($sql);
     $insertValuesSQL = '';
-    $statement->bind_param('sii', $_POST['content'], $_SESSION['user_id'], $isPrivate);
+    $statement->bind_param('sib', $_POST['content'], $_SESSION['user_id'], $isPrivate);
     if ($statement->execute())
     {
         $post_id = $lastid = mysqli_insert_id($conn); 

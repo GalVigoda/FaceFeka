@@ -4,6 +4,7 @@
 check_auth();
 db_connect();
 ?>
+  <script src="send-email.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"></script>
   <style type="text/css">
@@ -78,6 +79,7 @@ db_connect();
                 </div>
             </div>
             <!-- ./friend requests -->
+    
         </div>
         <div class="col-md-6">
             <!-- post form -->
@@ -259,6 +261,44 @@ db_connect();
                 </div>
             </div>
             <!-- ./friends -->
+            <!-- Game -->
+              <div class="panel panel-default">
+                <div class="panel-body">
+                <h4>FlappyBird</h4>
+                <button onclick="FlappyBird()">FlappyBird</button>
+                <button onclick="testSendMail()">testSendMail</button>
+                <h5>play with:</h5>
+                <!--<h5>FlappyBird</h5>-->
+                <!--<button onclick="FlappyBird()">FlappyBird</button>-->
+                <script>
+                function FlappyBird() {
+                   
+                window.open("http://localHost:5000");
+                }
+                </script>
+                 <script>
+                function testSendMail() {
+                <script type="text/javascript" src="node_modules/nodemailer/send-email.js">
+                </script>
+                  <?php
+                        $sql = "SELECT id, username, (SELECT COUNT(*) FROM user_friends WHERE user_friends.user_id = users.id AND user_friends.friend_id = {$_SESSION['user_id']}) AS is_friend FROM users WHERE id != {$_SESSION['user_id']} HAVING is_friend = 0";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            ?><ul><?php
+
+                            while($fc_user = $result->fetch_assoc()) {
+                                ?><li>
+                                  
+                                    <a href="php/sendMail.php?uid=<?php echo $fc_user['id']; ?>"> <?php echo $fc_user['username']; ?></a>
+                                </li><?php
+                            }
+
+                            ?></ul><?php
+                        } else {
+                            ?><p class="text-center">No users to add!</p><?php
+                        }
+                    ?>
+                <!--  ./Game -->
         </div>
     </div>
 </main>
