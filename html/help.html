@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="css/help.css" type="text/css">
+</head>
+<body>
+    <main>
+        <div class="contact-form">
+             <form name="contactform" method="post" action="/php/send_form_email.php">
+                <h1>Contact Us!</h1>
+                <div class="row">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" id="fname" autocomplete="off" placeholder="Enter your first name">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" id="lname" autocomplete="off" placeholder="Enter your last name">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="mail" autocomplete="off" placeholder="Enter your first email address">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="telephone">Phone:</label>
+                    <input type="text" name="telephone" id="phone" autocomplete="off" placeholder="Enter your first phone number">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="comments">Message:</label>
+                    <textarea rows="4" placeholder="Your message here..."></textarea>
+                    <span class="border-focus-textarea"></span>
+                </div>
+                <div class="row-button">
+                    <input type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
+
+  <!--
+
+<form name="contactform" method="post" action="/php/send_form_email.php">
+        <table width="450px">
+        <tr>
+         <td valign="top">
+          <label for="first_name">First Name *</label>
+         </td>
+         <td valign="top">
+          <input  type="text" name="first_name" maxlength="50" size="30">
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <label for="last_name">Last Name *</label>
+         </td>
+         <td valign="top">
+          <input  type="text" name="last_name" maxlength="50" size="30">
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <label for="email">Email Address *</label>
+         </td>
+         <td valign="top">
+          <input  type="text" name="email" maxlength="80" size="30">
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <label for="telephone">Telephone Number</label>
+         </td>
+         <td valign="top">
+          <input  type="text" name="telephone" maxlength="30" size="30">
+         </td>
+        </tr>
+        <tr>
+         <td valign="top">
+          <label for="comments">Comments *</label>
+         </td>
+         <td valign="top">
+          <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
+         </td>
+        </tr>
+        <tr>
+         <td colspan="2" style="text-align:center">
+          <input type="submit" value="Submit">
+         </td>
+        </tr>
+        </table>
+        </form>
+     
+
+
+
+        
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Form</title>
+    <form name="contactform" method="post" action="send_form_email.php"></form>
+    <link rel="stylesheet" href="helpp.css" type="text/css">
+</head>
+<body>
+    <main>
+        <div class="contact-form">
+            <form action="#" method="post" class="form-style">
+                <h1>Contact Us!</h1>
+                <div class="row">
+                    <label for="name">First Name:</label>
+                    <input type="text" name="firstname" id="name" autocomplete="off" placeholder="Enter your first name">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="lname">Last Name:</label>
+                    <input type="text" name="lastname" id="lname" autocomplete="off" placeholder="Enter your last name">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="mail">Email:</label>
+                    <input type="email" name="mail" id="mail" autocomplete="off" placeholder="Enter your first email address">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="phone">Phone:</label>
+                    <input type="text" name="phone" id="phone" autocomplete="off" placeholder="Enter your first phone number">
+                    <span class="border-focus"></span>
+                </div>
+                <div class="row">
+                    <label for="message">Message:</label>
+                    <textarea rows="4" placeholder="Your message here..."></textarea>
+                    <span class="border-focus-textarea"></span>
+                </div>
+                <div class="row-button">
+                    <input type="submit" value="Send">
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
+!-->
