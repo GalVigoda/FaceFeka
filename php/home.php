@@ -85,7 +85,7 @@
           <ul>
             <li>
               <a href="#">alberte</a> 
-              <a href="#">[add]</a>
+              <a href="#">[adsssd]</a>
             </li>
           </ul>
         </div>
@@ -105,6 +105,20 @@
         </div>
       </div>
       <!-- ./friends -->
+
+            <!-- Game 
+            <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>Game</h4>
+          <ul>
+            <li>
+              <a href="#">peterpan</a> 
+              <a class="text-danger" href="#"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      ./Game -->
     </div>
   </div>
 </main>
