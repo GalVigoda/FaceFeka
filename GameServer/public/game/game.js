@@ -171,7 +171,7 @@ function gameOver(){
 
 
     socket.on("showScores", function(){
-        window.location = "http://127.0.0.1:2500/scores?roomNumber="+myRoom
+        window.location = "http://127.0.0.1:5000/scores?roomNumber="+myRoom
     })
 
 }
