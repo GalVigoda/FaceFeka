@@ -11,6 +11,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
+            <img src="/img/facebookLogo1.JPG" width="120" height="50" href="index.php">
                 <a class="navbar-brand" href="index.php">FaceFeka</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
