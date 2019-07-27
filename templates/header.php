@@ -16,6 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="dashboard.php">Home</a></li>
                 <li><a href="php/logout.php">Logout</a></li>
+                <li><a href="html/help.html">Contact Us</a></li>
             </ul>
         </div>
     </nav>
