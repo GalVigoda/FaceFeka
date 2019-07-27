@@ -122,7 +122,7 @@ db_connect();
                 <!-- post -->
                 <?php
                 //$sql = "SELECT * FROM posts ORDER BY date DESC";
-                $sql = "SELECT posts.id as post_id, posts.*, users.* FROM posts LEFT JOIN users ON posts.user_id = users.id WHERE posts.user_id = {$_SESSION['user_id']} OR (posts.user_id != {$_SESSION['user_id']} AND posts.isPrivate = 0) ORDER BY date DESC";
+                $sql = "SELECT posts.id as post_id, posts.user_id as user_id, posts.*, users.* FROM posts LEFT JOIN users ON posts.user_id = users.id WHERE posts.user_id = {$_SESSION['user_id']} OR (posts.user_id != {$_SESSION['user_id']} AND posts.isPrivate = 0) ORDER BY date DESC";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
                     while ($post = $result->fetch_assoc()) {
@@ -154,19 +154,23 @@ db_connect();
                                             echo '(Public)';
                                     ?> 
                                 </span>
-                                <span class="pull-right"><a class="text-danger" href="php/delete_post.php?id=<?php echo $post['post_id']; ?>">[delete]</a></span>
+                                <?php if ($post['user_id'] == $_SESSION['user_id']) {?>
+                                    <span class="pull-right"><a class="text-danger" href="php/delete_post.php?id=<?php echo $post['post_id']; ?>">[delete]</a></span>
+                                <?php } ?>
                             </div>
                             <!-- post comments -->
                             <div class="panel-body">
                                 <?php
-                                    $commentSql = "SELECT post_comments.id as comment_id, post_comments.*, users.* FROM post_comments LEFT JOIN users ON post_comments.user_id = users.id WHERE post_comments.post_id = {$post['post_id']} ORDER BY post_comments.id ASC";
+                                    $commentSql = "SELECT post_comments.id as comment_id, post_comments.user_id as user_id, post_comments.*, users.* FROM post_comments LEFT JOIN users ON post_comments.user_id = users.id WHERE post_comments.post_id = {$post['post_id']} ORDER BY post_comments.id ASC";
                                     $commentsResult = $conn->query($commentSql);
                                     if ($commentsResult->num_rows > 0){
                                         while ($comment = $commentsResult->fetch_assoc()){
                                         ?>
                                             <li>
                                                 <span><?php echo $comment['comment']; ?> (commented by <?php echo $comment['username']; ?>)</span>
-                                                <span class="pull-rght"> <a class="text-danger" href="php/delete_comment.php?id=<?php echo $comment['comment_id']; ?>">[delete]</a></span>
+                                                <?php if ($comment['user_id'] == $_SESSION['user_id']) {?>
+                                                    <span class="pull-rght"> <a class="text-danger" href="php/delete_comment.php?id=<?php echo $comment['comment_id']; ?>">[delete]</a></span>
+                                                <?php } ?>
                                             </li>
                                         <?php
                                         }

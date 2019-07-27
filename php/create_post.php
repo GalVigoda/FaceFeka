@@ -31,17 +31,17 @@ defined("SITE_ROOT") ? null : define('SITE_ROOT', $_SERVER['DOCUMENT_ROOT']);
                     $insertValuesSQL .= "('".$destination."',".$post_id." ),";
                 }
             }
-            if(!empty($insertValuesSQL)){
+            if(!empty($insertValuesSQL))
+            {
                 $insertValuesSQL = trim($insertValuesSQL,',');
                 // Insert image file name into database
                 $insert = $conn->query("INSERT INTO images (file_name, post_id) VALUES {$insertValuesSQL}");
-                if($insert){
-                    redirect_to("/dashboard.php");
-                }else{
+                if(!$insert){
                     echo "Error!!! ".$conn->error;
                 }
             }
-        }  
+        }    
+        redirect_to("/dashboard.php");
     }else {
         echo "Error!!! ".$conn->error;
     }
